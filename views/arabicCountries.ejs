@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('./header') %>
+    </head>
+<body>
+    <div class="d-flex flex-column">
+        <section id="navbar"><%- include('./navbar') %> </section>
+        <div class="d-flex">
+            <section id="sidebar">
+                <%- include('./sidebar') %>
+            </section>
+             <section id="main-content ">
+                <table class="table table-striped" id="table-with-pagination">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Official name</th>
+                        <th scope="col">Region</th>
+                        <th scope="col">Subregion</th>
+                        <th scope="col">Borders</th>
+                        <th scope="col">Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% resultado.forEach((country, index)=>{ console.log(country)%>
+                        <tr>
+                          <th scope="row">
+                            <%= index %>
+                          </th>
+                          <td>
+                            <%= country.officialName %>
+                          </td>
+                          <td>
+                            <%= country.Location.region %>
+                          </td>
+                          <td>
+                            <%= country.Location.region%>
+                          </td>
+                          <td>
+                            <%= country.ExtraInformation.borders%>
+                          </td>
+                          <td>
+                            <button type="button" class="btn btn-secondary" name="modificar-cliente"
+                              data-bs-toggle="modal" data-bs-target="#modifyClientModal">
+                              Modificar Cliente
+                            </button>
+                          </td>
+                        </tr>
+                        <% }) %>
+                    </tbody>
+                  </table>
+
+                <h3><% resultado.forEach((country, index)=>{
+
+                })%></h3>
+             </section>
+        </div>
+    </div>
+   
+</body>
+</html>
