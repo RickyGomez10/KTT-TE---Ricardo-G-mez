@@ -1,4 +1,13 @@
 html, body {
     height: 100%;
 }
+
+.navbar-inner{
+  /*background-image: url("./../images/banner-navbar.jpg"); */
+  background-repeat: no-repeat;
+  background-position: center;
+  background:linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url("./../images/banner-navbar2.jpg"); 
+      
+  background-size: auto;
+} 
   
