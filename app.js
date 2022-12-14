@@ -20,7 +20,7 @@ app.use('/icons', express.static(__dirname + '/node_modules/bootstrap-icons/font
 
 var countryRouter = require('./country/routes');
 
-app.use('/country', countryRouter);
+app.use('/region', countryRouter);
 
 
 
