@@ -28,11 +28,46 @@ async function GetCountriesByRegion(region) {
 
     return FilterCountriesFactory(region, countries);
   } catch (e) {
-    console.log("Error while retrieving america information:" + e.message);
+    console.log("Error while retrieving region information:" + e.message);
     return "";
   }
 }
 
+async function GetCountry(countryName){
+  console.log(countryName);
+  const mapProvider = 'googleMaps';
+  let countryResponse;
+  try {
+    const res = await axios.get("https://restcountries.com/v3/name/"+countryName);
+    const json = await res.data;
+    for (const country in json) {
+
+    let latitude = Math.trunc(setCoordinate(json[country].latlng[0])*100)/100;
+    let longitude = Math.trunc(setCoordinate(json[country].latlng[1])*100)/100;
+    let capital = setCapital(json[country].capital);
+    let borders = setBorders(json[country].borders);
+    Coordinates = new Classes.Coordinates(latitude, longitude);
+
+    Geography = new Classes.Geography(json[country].area);
+
+    ExtraInformation = new Classes.ExtraInformation(json[country].population, json[country].cca3, capital, json[country].languages, borders);
+
+    Locatio = new Classes.Location(json[country].region, json[country].subregion);
+
+    MetaData = new Classes.MetaData(json[country].flags[0],json[country].maps[mapProvider], json[country].languages ,json[country].currencies);
+
+    Country = new Classes.Country(json[country].name.official, Locatio, Coordinates, ExtraInformation, Geography, MetaData);
+    
+    countryResponse = Country;
+    
+    }
+
+    return countryResponse;
+  } catch (e) {
+    console.log("Error: Error while retrieving country information: " + e.message);
+    return "";
+  }
+}
 
 function setCoordinate(coordinateToCheck) {
   let coordinate;
@@ -107,11 +142,11 @@ function sortCountriesByPopulation(a,b){
     return 0;
 }
 
-function filterCountriesByLanguage(language, country){
-    if (country.ExtraInformation.language == language) {
-        return true;
-    }
-    return false;
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-module.exports = GetCountriesByRegion;
+module.exports = {
+  GetCountriesByRegion: GetCountriesByRegion,
+  GetCountry:GetCountry,
+};

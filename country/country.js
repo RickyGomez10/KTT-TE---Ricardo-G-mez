@@ -4,13 +4,15 @@ let Country = class {
     Location,
     Coordinates,
     ExtraInformation,
-    Geography
+    Geography,
+    MetaData
   ) {
     this.officialName = officialName;
     this.Location = Location;
     this.Coordinate = Coordinates;
     this.ExtraInformation = ExtraInformation;
     this.Geography = Geography;
+    this.MetaData = MetaData;
   }
 };
 
@@ -26,6 +28,15 @@ let Geography = class {
     this.area = area;
   }
 };
+
+let MetaData = class{
+  constructor(flag, googleMapUrl, languages, currencies){
+    this.flag = flag;
+    this.googleMapUrl = googleMapUrl;
+    this.languages = languages;
+    this.currencies = currencies;
+  }
+}
 
 let ExtraInformation = class {
   constructor(population, cca3, capital, languages, borders) {
@@ -66,4 +77,5 @@ module.exports = {
   Geography: Geography,
   ExtraInformation: ExtraInformation,
   Coordinates: Coordinates,
+  MetaData: MetaData,
 };

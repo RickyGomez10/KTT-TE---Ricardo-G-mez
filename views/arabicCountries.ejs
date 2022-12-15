@@ -13,7 +13,7 @@
           </div>
           <div class="col p-3 mh-100 overflow-auto">
             <h3 class="text-center p-4 h3"> <%=ttitle%></h3>
-            <table class="table table-striped" id="table-with-pagination">
+            <table class="table table-striped text-center" id="table-with-pagination">
               <thead>
                 <tr>
                   <th scope="col">#</th>
@@ -21,7 +21,7 @@
                   <th scope="col">Region</th>
                   <th scope="col">Subregion</th>
                   <th scope="col">Borders</th>
-                  <th scope="col">Acciones</th>
+                  <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -42,11 +42,8 @@
                     <td>
                       <%= country.ExtraInformation.borders%>
                     </td>
-                    <td>
-                      <button type="button" class="btn btn-secondary" name="modificar-cliente"
-                        data-bs-toggle="modal" data-bs-target="#modifyClientModal">
-                        Modificar Cliente
-                      </button>
+                    <td> 
+                      <a href="/region/country/<%= country.officialName %>" class="btn bg-primary text-light"> <i class="fa-solid fa-book "></i> View Details </a>
                     </td>
                   </tr>
                   <% }) %>

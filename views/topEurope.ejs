@@ -13,7 +13,7 @@
           </div>
           <div class="col p-3 mh-100 overflow-auto">
             <h3 class="text-center p-4"> <%=ttitle%></h3>
-            <table class="table table-striped" id="table-with-pagination">
+            <table class="table table-striped text-center" id="table-with-pagination">
               <thead>
                 <tr>
                   <th scope="col">#</th>
@@ -21,7 +21,7 @@
                   <th scope="col">Population</th>
                   <th scope="col">Latitude</th>
                   <th scope="col">Longitude</th>
-                  <th scope="col">Acciones</th>
+                  <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -34,19 +34,16 @@
                       <%= country.officialName %>
                     </td>
                     <td>
-                      <%= country.ExtraInformation.population %>
+                      <%= country.ExtraInformation.population.toLocaleString() %>
                     </td>
                     <td>
-                      <%= country.Coordinate.latitude%>
+                      <%= country.Coordinate.latitude.toFixed(2)%>
                     </td>
                     <td>
-                      <%= country.Coordinate.longitude%>
+                      <%= country.Coordinate.longitude.toFixed(2)%>
                     </td>
                     <td>
-                      <button type="button" class="btn btn-secondary" name="modificar-cliente"
-                        data-bs-toggle="modal" data-bs-target="#modifyClientModal">
-                        Modificar Cliente
-                      </button>
+                      <a href="/region/country/<%= country.officialName %>" class="btn btn-primary">View Details </a>
                     </td>
                   </tr>
                   <% }) %>
