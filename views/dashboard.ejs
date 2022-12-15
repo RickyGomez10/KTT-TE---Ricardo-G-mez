@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./header') %>
+</head>
+
+<body>
+    <%- include('./navbar') %>
+        <div class="container-fluid h-100 ">
+            <div class="row h-100">
+                    <div class="col-lg-3 bg-dark d-none d-lg-block">
+                      <%- include('./sidebar') %>
+                    </div>
+                <div class="col-lg-9 ">
+                    <section class="container-fluid h-100">
+                        <div class="row p-3">
+                        
+                            <div class="col-12 ">
+                                <div class=" border rounded d-flex flex-column justify-content-center align-items-center p-5" >
+                                    <h3>TOP 5 SPOKEN LANGUAGES AFRICA</h3>
+                                    <canvas id="myChart"></canvas></div>
+                            </div>
+                        </div>
+                        <div class="row p-3">
+                            <div class="col-xxl-6 ">
+                                
+                                <div class=" border rounded d-flex flex-column justify-content-center align-items-center p-5">
+                                    <h3>TOP 5 LARGEST AMERICA COUNTRIES</h3>
+                                    <canvas id="myChart2"></canvas></div>
+                            </div>
+                            <div class="col-xxl-6 ">
+                                <div class="border rounded d-flex flex-column justify-content-center align-items-center p-5">
+                                    <h3 >TOP 5 POPULATED EUROPE COUNTRIES</h3>
+                                    <canvas id="myChart3"></canvas></div>
+                            </div>
+
+                        </div>
+                    </section>
+                </div>
+               
+            </div>
+</body>
+<div>
+    
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <script>
+    const ctx = document.getElementById('myChart');
+    var africaLanguages2 = <%- JSON.stringify(africaLanguages) %>;
+    var languageCount = [];
+    var labels = [];
+    var colors = [];
+    africaLanguages2.forEach((language) => {
+        languageCount.push(language.count);
+        labels.push(language.name);
+    });
+    
+    for (var i = 0; i < 20; i++) {
+        colors.push(getRandomColor().toString());
+    }
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Most spoken languages Africa',
+          data: languageCount,
+          borderWidth: 1,
+          backgroundColor: colors,
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    const ctx2 = document.getElementById('myChart2');
+    var americaCountries2 = <%- JSON.stringify(americaCountries) %>;
+    var areas = [];
+    var labels = [];
+    var colors = [];
+    americaCountries2.forEach((country) => {
+        areas.push(country.Geography.area);
+        labels.push(country.officialName);
+    });
+    
+    for (var i = 0; i < 20; i++) {
+        colors.push(getRandomColor().toString());
+    }
+   
+   
+    new Chart(ctx2, {
+      type: 'pie',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Top 20 Largest countries America',
+          data: areas,
+          borderWidth: 1,
+          backgroundColor: colors,
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    const ctx3 = document.getElementById('myChart3');
+
+    var europeCountries2 = <%- JSON.stringify(europeCountries) %>;
+    var population = [];
+    var labels = [];
+    var colors = [];
+    europeCountries2.forEach((country) => {
+        labels.push(country.officialName);
+        population.push(country.ExtraInformation.population);
+        
+    });
+    for (var i = 0; i < 20; i++) {
+        colors.push(getRandomColor().toString());
+    }
+  
+    new Chart(ctx3, {
+      type: 'pie',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Top 20 populated countries Europe',
+          data: population,
+          borderWidth: 1,
+          backgroundColor: colors,
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    const ctx4 = document.getElementById('myChart4');
+    
+    new Chart(ctx4, {
+      type: 'bar',
+      data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+          label: '# of Votes',
+          data: [12, 19, 3, 5, 2, 3],
+          borderWidth: 1,
+          backgroundColor: colors,
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    function getRandomColor(){
+        return "#" + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0').toUpperCase();
+    }
+  </script>
+</html>

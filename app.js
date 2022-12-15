@@ -37,5 +37,3 @@ app.listen(PORT, (error) =>{
 }
     
 );
-
-//fetch('https://restcountries.com/v3.1/all').then( (response) => {return response.json}).then( finalJson => { console.log(finalJson) });

@@ -18,8 +18,8 @@
                             </h5>
                             <section> <p>Located in: <%=resultado.Location.region %>, <%=resultado.Location.subregion %> </p></section>
                             <section> <p>Capital: <%=resultado.ExtraInformation.capital %> </p></section>
-                            <section> <p>Population: <%=resultado.ExtraInformation.population %> </p></section>
-                            <section> <p>Area: <%=resultado.Geography.area %> Km2 </p></section>
+                            <section> <p>Population: <%=resultado.ExtraInformation.population.toLocaleString() %> </p></section>
+                            <section> <p>Area: <%=resultado.Geography.area.toLocaleString() %> Km2 </p></section>
                             <section class="currencies">
                                 <h4 class="h4">Currencies: </h4>
                                 <ul class="nav nav-pills nav-fill flex-column">
