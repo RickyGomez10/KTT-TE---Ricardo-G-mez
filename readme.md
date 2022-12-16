@@ -59,10 +59,11 @@ On your left, you can see you profile information as well as the buttons to navi
 
 On the center you can see a table showing the information of the countries based on the option you selected to see: 
 
-![Main content description](https://user-images.githubusercontent.com/37432072/208002578-c4942f5d-80a1-4f20-a914-87f543d7e273.png)
+![Main content description](https://user-images.githubusercontent.com/37432072/208004730-8336b4c9-147a-4a18-83eb-fd37b4a7743f.png)
 
-Inside the table you can see a button, when you click it, the detailed view of that country will appear on a new screen
-![image](https://user-images.githubusercontent.com/37432072/208000106-dd5b822f-d03c-4eab-a545-f02c48a010de.png)
+Inside the table you can see a button, when you click it, the detailed view of that country will appear on a new screen:
+
+![image](https://user-images.githubusercontent.com/37432072/208003865-d42f495e-a88c-48b4-9701-efdde85e7c7d.png)
 The detail of the country displays on the left a card with the info of the selected country, information such as the capital, the population, the area, etc. On the right, a map will be displayed to show the location of that country on the earth:
 
 ![detail page](https://user-images.githubusercontent.com/37432072/208001594-6d082dd2-d88e-4731-959d-2403a8ea324d.png)
