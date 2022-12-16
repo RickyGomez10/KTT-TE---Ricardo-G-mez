@@ -6,7 +6,7 @@ const regionBaseUrl = "https://restcountries.com/v3/region/";
 const countryBaseUrl = "https://restcountries.com/v3/name/";
 
 async function GetCountriesByRegion(region) {
-  const countries = [];
+  let countries = [];
   try {
     const res = await axios.get(
       regionBaseUrl + region
@@ -114,11 +114,11 @@ async function GetLanguagesByRegion(regionName) {
   try {
     const res = await axios.get(regionBaseUrl+regionName);
     const json = await res.data;
-    var languages = [];
+    let languages = [];
     for (const country in json) {
       for (const language in json[country].languages) {
       
-        var hasLanguage = languages.some((countryLanguageAdded) => {
+        let hasLanguage = languages.some((countryLanguageAdded) => {
           return countryLanguageAdded.name == language;
         });
 
