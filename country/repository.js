@@ -1,6 +1,8 @@
 const axios = require("axios");
 const Classes = require("./country");
 
+const mapProvider = "googleMaps";
+
 async function GetCountriesByRegion(region) {
   const countries = [];
 
@@ -49,7 +51,6 @@ async function GetCountriesByRegion(region) {
 }
 
 async function GetCountry(countryName) {
-  const mapProvider = "googleMaps";
   let countryResponse;
   try {
     const res = await axios.get(
@@ -131,6 +132,7 @@ async function GetLanguagesByRegion(regionName) {
         }
       }
     }
+
    return languages;
   } catch (e) {
     console.log(
