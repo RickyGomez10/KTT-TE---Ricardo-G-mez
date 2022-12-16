@@ -2,13 +2,14 @@ const axios = require("axios");
 const Classes = require("./country");
 
 const mapProvider = "googleMaps";
+const regionBaseUrl = "https://restcountries.com/v3/region/";
+const countryBaseUrl = "https://restcountries.com/v3/name/";
 
 async function GetCountriesByRegion(region) {
   const countries = [];
-
   try {
     const res = await axios.get(
-      "https://restcountries.com/v3/region/" + region
+      regionBaseUrl + region
     );
     const json = await res.data;
     for (const country in json) {
@@ -54,7 +55,7 @@ async function GetCountry(countryName) {
   let countryResponse;
   try {
     const res = await axios.get(
-      "https://restcountries.com/v3/name/" + countryName
+      countryBaseUrl + countryName
     );
     const json = await res.data;
     for (const country in json) {
@@ -111,7 +112,7 @@ async function GetCountry(countryName) {
 
 async function GetLanguagesByRegion(regionName) {
   try {
-    const res = await axios.get("https://restcountries.com/v3/region/"+regionName);
+    const res = await axios.get(regionBaseUrl+regionName);
     const json = await res.data;
     var languages = [];
     for (const country in json) {
