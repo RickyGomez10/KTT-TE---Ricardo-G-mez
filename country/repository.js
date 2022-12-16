@@ -41,7 +41,7 @@ async function GetCountriesByRegion(region) {
       countries.push(Country);
     }
 
-    return FilterCountriesFactory(region, countries);
+    return countries;
   } catch (e) {
     console.log("Error while retrieving region information:" + e.message);
     return "";
@@ -108,9 +108,9 @@ async function GetCountry(countryName) {
   }
 }
 
-async function GetLanguagesAfrica() {
+async function GetLanguagesByRegion(regionName) {
   try {
-    const res = await axios.get("https://restcountries.com/v3/region/africa");
+    const res = await axios.get("https://restcountries.com/v3/region/"+regionName);
     const json = await res.data;
     var languages = [];
     for (const country in json) {
@@ -131,9 +131,7 @@ async function GetLanguagesAfrica() {
         }
       }
     }
-    sortedLanguages = languages.sort((a, b) => sortSpokenLanguagesAfrica(a, b));
-  
-    return sortedLanguages;
+   return languages;
   } catch (e) {
     console.log(
       "Error: Error while retrieving country information: " + e.message
@@ -174,56 +172,9 @@ function setBorders(borders) {
   return separatedByCommasBorders;
 }
 
-function FilterCountriesFactory(region, countries) {
-  regionLowerCase = region.toLowerCase();
-  var filteredCountries;
-  const topAmerica = 20; // deben estar en configuracion en caso de que cambie la regla de top20 a top10 por ejemplo
-  const topEurope = 20;
-  const africaLanguageFilter = "ara";
-  switch (regionLowerCase) {
-    case "america":
-      sortedCountries = countries.sort((a, b) => sortCountriesByArea(a, b));
-      filteredCountries = sortedCountries.slice(0, topAmerica);
-      break;
-    case "europe":
-      sortedCountries = countries.sort((a, b) =>
-        sortCountriesByPopulation(a, b)
-      );
-      filteredCountries = sortedCountries.slice(0, topEurope);
-      break;
-    case "africa":
-      filteredCountries = countries.filter(
-        (country) => country.ExtraInformation.languages[africaLanguageFilter]
-      );
-      break;
-    default:
-      filteredCountries = countries;
-      break;
-  }
-  return filteredCountries;
-}
-
-function sortCountriesByArea(a, b) {
-  if (a.Geography.area < b.Geography.area) return 1;
-  if (a.Geography.area > b.Geography.area) return -1;
-  return 0;
-}
-
-function sortSpokenLanguagesAfrica(a,b) {
-  if (a.count < b.count) return 1;
-  if (a.count > b.count) return -1;
-  return 0;
-}
-
-function sortCountriesByPopulation(a, b) {
-  if (a.ExtraInformation.population < b.ExtraInformation.population) return 1;
-  if (a.ExtraInformation.population > b.ExtraInformation.population) return -1;
-  return 0;
-}
-
 
 module.exports = {
   GetCountriesByRegion: GetCountriesByRegion,
   GetCountry: GetCountry,
-  GetLanguagesAfrica: GetLanguagesAfrica,
+  GetLanguagesByRegion: GetLanguagesByRegion,
 };
