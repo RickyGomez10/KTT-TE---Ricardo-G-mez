@@ -10,6 +10,7 @@ const detailedViewTitle = 'Country detailed view'
 const dashBoardAmericaTop = 5;
 const dashBoardEuropeTop = 5;
 const dashBoardAfricaLanguagesTop = 5;
+
 router.get('/america/top20', async function(req, res, next){
     response = await CountryRepository.GetCountriesByRegion("America");
     res.render('topAmerica', {resultado: response, title: americaContentTitle,ttitle: americaContentTitle, america: 'active', europe: '', africa: '', dashboard: ''});
@@ -35,7 +36,7 @@ router.get('/dashboard', async function(req, res, next){
     africaCountries = await CountryRepository.GetCountriesByRegion("Africa");
     africaLanguages = await CountryRepository.GetLanguagesAfrica();
     
-    res.render('dashboard', {title:dashboardContentTitle, americaCountries: americaCountries.slice(0, dashBoardAmericaTop),europeCountries: europeCountries.slice(0, dashBoardEuropeTop),africaCountries: africaCountries,africaLanguages:africaLanguages.slice(0,dashBoardAfricaLanguagesTop), america: '', europe: '', africa: '', dashboard: 'active'})
+    res.render('dashboard', {title:dashboardContentTitle, americaCountries: americaCountries.slice(0, dashBoardAmericaTop),europeCountries: europeCountries.slice(0, dashBoardEuropeTop),africaCountries: africaCountries,africaLanguages:africaLanguages.slice(0,dashBoardAfricaLanguagesTop), america: '', europe: '', africa: '', dashboard: 'active'});
 })
 
 module.exports = router;

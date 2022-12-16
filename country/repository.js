@@ -114,15 +114,13 @@ async function GetLanguagesAfrica() {
     const json = await res.data;
     var languages = [];
     for (const country in json) {
-      console.log("------------pais------------", country);
       for (const language in json[country].languages) {
-        console.log("------------lenguas------------", language);
+      
         var hasLanguage = languages.some((countryLanguageAdded) => {
           return countryLanguageAdded.name == language;
         });
 
         if (!hasLanguage) {
-          console.log("No tiene el idioma:", language);
           languages.push({ name: language, count: 1 });
         } else {
           for (let index = 0; index < languages.length; index++) {
@@ -134,7 +132,7 @@ async function GetLanguagesAfrica() {
       }
     }
     sortedLanguages = languages.sort((a, b) => sortSpokenLanguagesAfrica(a, b));
-    console.log(sortedLanguages);
+  
     return sortedLanguages;
   } catch (e) {
     console.log(
@@ -223,9 +221,6 @@ function sortCountriesByPopulation(a, b) {
   return 0;
 }
 
-function numberWithCommas(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
 
 module.exports = {
   GetCountriesByRegion: GetCountriesByRegion,

@@ -30,7 +30,7 @@
                 <th scope="row"><%= index+1 %></th>
                 <td><%= country.officialName %></td>
                 <td><%= country.ExtraInformation.capital %></td>
-                <td><%= country.Geography.area.toLocaleString()%></td>
+                <td><%= country.Geography.area.toLocaleString('en-IN')%></td>
                 <td><%= country.ExtraInformation.cca3%></td>
                 <td>
                   <a href="/region/country/<%= country.officialName %>" class="btn btn-primary"><i class="fa-solid fa-book "></i> View Details </a>
