@@ -25,7 +25,7 @@ app.use('/region', countryRouter);
 
 
 app.get('/', (req, res, next) => {
-    res.render('index', {});
+    res.render('index', {title: 'KTT Technical Evaluation'});
 })
 app.listen(PORT, (error) =>{
     if(!error){
