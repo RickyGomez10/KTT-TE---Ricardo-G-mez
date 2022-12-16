@@ -34,20 +34,48 @@ With the project cloned in your local machine, open the folder location in your 
 
 After installing all the dependencies, in the folder location run the following command:
 ``` sh
-    nodemon
+    node app.js
 ```
 
 Your terminal should log the following messages:
 ```sh
-    [nodemon] 2.0.7
-    [nodemon] to restart at any time, enter `rs`
-    [nodemon] watching path(s): *.*
-    [nodemon] watching extensions: js,mjs,json
-    [nodemon] starting `node app.js`
     Server is Successfully Running, and App is listening on port 3030
 ```
 
 ## Usage
+
+Once everything is setup, you can now access the project providing the urls on you website. Write down localhost:3030 on your preferred browser and the following screen will show up:
+
+![image](https://user-images.githubusercontent.com/37432072/207997650-6227148a-efa7-4cb3-97b6-9f76c25f42eb.png)
+
+Here you have the landing page where you can access the main content of the project, click Start and you will see the main content:
+![image](https://user-images.githubusercontent.com/37432072/207998348-a3a1223a-48d3-4dbc-9b83-a24f6b81d7da.png)
+
+On your left, you can see you profile information as well as the buttons to navigate through the app, the options are:
+* Top 20 largest america countries
+* Top 20 populated europe countries
+* Arabic speakers countries africa
+* Dashboard
+
+On the center you can see a table showing the information of the countries based on the option you selected to see: 
+
+![Main content description](https://user-images.githubusercontent.com/37432072/208002578-c4942f5d-80a1-4f20-a914-87f543d7e273.png)
+
+Inside the table you can see a button, when you click it, the detailed view of that country will appear on a new screen
+![image](https://user-images.githubusercontent.com/37432072/208000106-dd5b822f-d03c-4eab-a545-f02c48a010de.png)
+The detail of the country displays on the left a card with the info of the selected country, information such as the capital, the population, the area, etc. On the right, a map will be displayed to show the location of that country on the earth:
+
+![detail page](https://user-images.githubusercontent.com/37432072/208001594-6d082dd2-d88e-4731-959d-2403a8ea324d.png)
+
+Finally, when you select the option 'Dashboard', some examples graph will be displayed:
+
+![image](https://user-images.githubusercontent.com/37432072/208002050-bf4f2a69-2074-41fd-86f2-20467123e619.png)
+
+The dashboard shows 3 graphs, graphs related to the information of the 3 previous options:
+
+![dashboard](https://user-images.githubusercontent.com/37432072/208002695-ea40447e-7fef-44bf-9172-9b21e69f3418.png)
+
+
 
 
  
