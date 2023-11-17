@@ -76,7 +76,7 @@ The dashboard shows 3 graphs, graphs related to the information of the 3 previou
 
 ![dashboard](https://user-images.githubusercontent.com/37432072/208002695-ea40447e-7fef-44bf-9172-9b21e69f3418.png)
 
-
+Ends.
 
 
  
